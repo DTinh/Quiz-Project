@@ -1,0 +1,84 @@
+
+@media (min-width: 1200px) {
+    .container-xl, .container-lg, .container-md, .container-sm, .container {
+        max-width: 1230px !important;
+    }
+}
+.app-container{
+    .header-container{
+        .btn-login{
+            margin-right: 10px;
+            border-radius: 5px;
+            padding: 0 15px;
+            border: 1px solid #363535;
+            background-color: #fff;
+            height: 40px;
+
+            &:hover{
+                border-radius: 10px;
+                background-color: #363535;
+                color: #fff;
+            }
+        }
+        .btn-signup{
+            border-radius: 5px;
+            padding: 0 15px;
+            border: 1px solid #363535;
+            background-color: #fff;
+            height: 40px;
+
+
+            &:hover{
+                border-radius: 10px;
+                background-color: #363535;
+                color: #fff;
+            }
+        }
+        .navbar-collapse{
+            background-color: rgba(0,0,0,0) !important;
+            margin-top: 10px;
+            .nav-link{
+                &.active{
+                    color: #00bfff;
+                }
+            }
+        }
+    }
+    .homepage-container{
+        width: 50%;
+        .homepage-content{
+            margin: 0 100px;
+            padding-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            .title-1{
+                font-size: 40px;
+                font-weight: 600;
+            }
+            .title-2{
+                font-size: 18px;
+            }
+            button{
+                border-radius: 10px;
+                color: #fff;
+                padding: 8px 18px;
+                background-color: #333;
+                border: 1px solid #363535;
+                &:hover{
+                    background-color: #3a3030;
+                    border-radius: 15px;
+                }
+            }
+        }
+    }
+}
+
+video {
+    position: fixed; 
+    top: 20%;
+    right: 10%;
+    object-fit: cover; 
+    border-radius: 10px;
+}
