@@ -1,40 +1,51 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import "./Login.scss";
+import "./Resgister.scss";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { loginUser } from "../../services/apiServices";
-const Login = (props) => {
+import { registerUser } from "../../services/apiServices";
+const Resgister = (props) => {
   let navigate = useNavigate();
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async () => {
-    if (!email || !password) {
-      toast.error("Please enter your email or password!");
+  const [isShowEye, setIsShowEye] = useState(false);
+
+  const handleRegister = async () => {
+    if (!email || !password || !username) {
+      toast.error("Please fill in your information!");
       return;
     }
-    let res = await loginUser(email, password);
+    const data = {
+      email: email,
+      username: username,
+      password: password,
+    };
+    let res = await registerUser(data);
     console.log("check res", res);
 
     if (res && res.EC === 0) {
       toast.success(res.EM);
-      navigate("/");
+      navigate("/login");
     } else {
-      toast.error(res.EM);
+      toast.error("error");
     }
   };
   const handlePressEnter = (event) => {
     if (event.charCode === 13 && event.code === "Enter") {
-      handleLogin();
+      handleRegister();
     }
+  };
+  const handleChangeEye = () => {
+    setIsShowEye(!isShowEye);
   };
   return (
     <div className="login-container">
       <div className="content-up">
         <span>
-          Don't have an account yet?
+          Do you have an account yet?
           <button className="btn-signUp">
-            <NavLink to="/resgister">Sign up</NavLink>
+            <NavLink to="/">Sign in</NavLink>
           </button>
           Need help?
         </span>
@@ -54,22 +65,38 @@ const Login = (props) => {
           />
         </div>
         <div className="form-group">
-          <label>Password</label>
+          <label>Username</label>
           <input
-            type="password"
+            type="text"
             className="form-control"
-            value={password}
+            value={username}
             onChange={(event) => {
-              setPassword(event.target.value);
+              setUsername(event.target.value);
             }}
-            onKeyPress={(event) => handlePressEnter(event)}
           />
         </div>
-        <NavLink to="/">Forgot Password?</NavLink>
+        <div className="form-group ">
+          <label>Password</label>
+          <div className="group-password">
+            <input
+              type={isShowEye ? "text" : "password"}
+              className="form-control "
+              value={password}
+              onChange={(event) => {
+                setPassword(event.target.value);
+              }}
+              onKeyPress={(event) => handlePressEnter(event)}
+            />
+            <i
+              class={isShowEye ? "fa fa-eye" : "fa fa-eye-slash"}
+              onClick={() => handleChangeEye()}
+            />
+          </div>
+        </div>
       </div>
       <div className="content-down">
-        <button className="btn-login" onClick={() => handleLogin()}>
-          Login to Quiz Project
+        <button className="btn-login" onClick={() => handleRegister()}>
+          Resgister to Quiz Project
         </button>
         <div className="divider">
           <hr />
@@ -84,4 +111,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default Resgister;

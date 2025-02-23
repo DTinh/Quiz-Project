@@ -18,7 +18,7 @@ const ManageUser = (props) => {
   const [isShowModalUpdate, setIsShowModalUpdate] = useState(false);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [currentLimit, setCurrentLimit] = useState(1);
+  const [currentLimit, setCurrentLimit] = useState(3);
   const [totalPage, setTotalPage] = useState(0);
   useEffect(() => {
     fetchUsers();

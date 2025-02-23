@@ -1,5 +1,11 @@
 import axios from "../axios";
 
+const registerUser = (data) => {
+  return axios.post("api/v1/register", data);
+};
+const loginUser = (email, password) => {
+  return axios.post("api/v1/login", { email, password });
+};
 const postCreateUser = (data) => {
   return axios.post("api/v1/participant", data);
 };
@@ -12,4 +18,11 @@ const deleteUser = (idUser) => {
 const updateUser = (data) => {
   return axios.put("api/v1/participant", data);
 };
-export { postCreateUser, getAllUser, deleteUser, updateUser };
+export {
+  postCreateUser,
+  getAllUser,
+  deleteUser,
+  updateUser,
+  loginUser,
+  registerUser,
+};

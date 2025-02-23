@@ -1,0 +1,93 @@
+
+
+.login-container{
+    margin-bottom: 30px;
+    .content-up{
+        margin-top: 20px;
+        margin-right: 10px;
+        display: flex;
+        justify-content: flex-end;
+
+        .btn-signUp{
+            margin: 0 10px;
+            border-radius: 5px;
+            padding: 0 15px;
+            border: 1px solid #363535;
+            background-color: #fff;
+            height: 40px;
+            a{
+                text-decoration: none;
+                color: #333;
+            }
+            &:hover{
+                border-radius: 10px;
+                background-color: #363535;
+                a{
+                color: #fff;
+                }
+            }
+        }
+       
+    }
+    .content-mid{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 300px;
+        margin: 0 auto;
+        span{
+            text-align: center;
+        }
+        .title{
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        .sub-title{
+            margin-top: 20px;
+            font-size: 1.5rem;
+        }
+        a{
+            text-decoration: none;
+            color: #ccc;
+
+            &:hover{
+                color: black;
+            }
+        }
+    }
+    .content-down{
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            width: 300px;
+            button{
+                width: 100%;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                padding: 9px 10px;
+                background-color: #333;
+                color: #fff;
+                font-weight: 600;
+            }
+            .btn-login{
+                margin-top: 10px;
+            }
+            .btn{
+                margin-top: 10px;
+                background-color: #fff;
+                color: #333;
+                
+            }
+            .divider{
+                display: flex;
+                align-items: center;
+                margin-top: 10px;
+                span{
+                    margin: 0 10px;
+                }
+                hr{
+                    flex-grow: 1;
+                }
+            }
+    }
+}
